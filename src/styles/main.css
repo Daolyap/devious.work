@@ -864,6 +864,30 @@ button:disabled .btn-loading {
   opacity: 1;
 }
 
+.xok-trigger {
+  opacity: 0.05;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  font-size: 1.5rem;
+  color: var(--text-dim);
+}
+
+.xok-trigger:hover {
+  opacity: 0.2;
+}
+
+.xok-trigger.activated {
+  opacity: 1;
+  color: var(--primary);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
 .footer-text {
   color: var(--text-dim);
   font-size: 0.9rem;

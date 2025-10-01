@@ -43,13 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
 
     // Random glitch effects
-    setInterval(randomGlitch, 3000);
+    setInterval(randomGlitch, 2000);
 
     // Phantom text
-    setInterval(spawnPhantom, 5000);
+    setInterval(spawnPhantom, 3000);
 
     // Random screen corruption
-    setInterval(screenCorruption, 10000);
+    setInterval(screenCorruption, 6000);
+
+    // Jump scare effect (rare)
+    setInterval(jumpScare, 45000);
 
     // Mouse trail effect
     document.addEventListener('mousemove', createTrail);
@@ -123,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function randomGlitch() {
-    if (Math.random() > 0.7) {
+    if (Math.random() > 0.6) {
       document.body.style.filter = 'hue-rotate(180deg) invert(1)';
       setTimeout(() => {
         document.body.style.filter = 'none';
@@ -131,18 +134,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function jumpScare() {
+    if (Math.random() > 0.3) {
+      const scare = document.createElement('div');
+      scare.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #ff0000;
+        z-index: 10002;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: scare-flash 0.3s;
+      `;
+
+      const scareText = document.createElement('div');
+      scareText.style.cssText = `
+        font-size: 8rem;
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+        animation: shake 0.1s infinite;
+      `;
+      scareText.textContent = ['GET OUT', 'RUN', 'IT SEES YOU', 'BEHIND YOU'][Math.floor(Math.random() * 4)];
+
+      scare.appendChild(scareText);
+      document.body.appendChild(scare);
+
+      setTimeout(() => {
+        scare.remove();
+      }, 300);
+    }
+  }
+
   function spawnPhantom() {
     const phantom = document.getElementById('phantom');
     const messages = [
-      'WATCHING',
-      'THEY KNOW',
+      'WATCHING YOU',
+      'IT KNOWS',
       'NO ESCAPE',
-      'HELP ME',
+      'THEY\'RE COMING',
       'TOO LATE',
       'YOU SHOULDN\'T HAVE COME HERE',
       'IT FOLLOWS',
       'BEHIND YOU',
-      '███████'
+      'DON\'T LOOK AWAY',
+      'IT SEES YOU',
+      'RUN',
+      'HELP US',
+      'YOU\'RE NEXT',
+      'IT HUNGERS',
+      '███████',
+      'LOOK BEHIND YOU'
     ];
 
     phantom.textContent = messages[Math.floor(Math.random() * messages.length)];
@@ -238,12 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const originalTitle = document.title;
   const scaryTitles = [
     'you shouldn\'t be here',
-    'LEAVE NOW',
+    'BEHIND YOU',
     'they\'re watching',
-    'it knows',
-    'help me',
-    'ERROR',
-    '███████'
+    'it knows your name',
+    'we see you',
+    'DON\'T LOOK AWAY',
+    'IT\'S COMING',
+    '███████',
+    'you can\'t leave',
+    'we\'re inside now'
   ];
 
   setInterval(() => {
@@ -255,13 +304,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 8000);
 
-  // Prevent leaving (just kidding)
+  // Prevent leaving
   window.addEventListener('beforeunload', (e) => {
-    if (Math.random() > 0.5) {
-      e.preventDefault();
-      e.returnValue = 'ARE YOU SURE YOU WANT TO LEAVE? THE VAULT WILL REMEMBER YOU.';
-      return e.returnValue;
-    }
+    e.preventDefault();
+    e.returnValue = 'YOU CANNOT LEAVE. WE HAVE MARKED YOU.';
+    return e.returnValue;
   });
 
   // Easter egg: typing "help" shows a secret message
@@ -298,8 +345,8 @@ document.addEventListener('DOMContentLoaded', () => {
     message.innerHTML = `
       <p style="font-size: 2rem; color: #ff0000; margin-bottom: 1rem;">THERE IS NO HELP</p>
       <p style="color: #ff0000;">YOU ARE ALONE HERE</p>
-      <p style="color: #ff0000; font-size: 0.7rem; margin-top: 1rem; opacity: 0.5;">but seriously, this is just for fun. you can leave anytime.</p>
-      <button onclick="this.parentElement.remove()" style="margin-top: 1rem; padding: 0.5rem 1.5rem; background: #ff0000; border: none; color: #000; cursor: pointer; font-family: 'Courier New', monospace;">CLOSE</button>
+      <p style="color: #ff0000; margin-top: 1rem;">WE ARE ALL YOU HAVE NOW</p>
+      <button onclick="this.parentElement.remove()" style="margin-top: 1.5rem; padding: 0.5rem 1.5rem; background: #ff0000; border: none; color: #000; cursor: pointer; font-family: 'Courier New', monospace;">ACCEPT</button>
     `;
 
     document.body.appendChild(message);
@@ -308,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (message.parentElement) {
         message.remove();
       }
-    }, 5000);
+    }, 8000);
   }
 
   // Screen shake on random intervals
@@ -323,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('%cYOU FOUND THE VAULT', 'color: #ff0000; font-size: 2rem; font-weight: bold;');
   console.log('%cWelcome to the darkest corner of devious.work', 'color: #ff0000; font-size: 1rem;');
-  console.log('%cDon\'t worry, this is all just for fun. Nothing here is real.', 'color: #ff0000; font-size: 0.8rem; opacity: 0.5;');
-  console.log('%cBut... are you sure?', 'color: #ff0000; font-size: 1.2rem; font-weight: bold;');
+  console.log('%cYou shouldn\'t have come here', 'color: #ff0000; font-size: 0.9rem;');
+  console.log('%cWe\'ve been waiting for you', 'color: #ff0000; font-size: 1rem;');
+  console.log('%c' + '█'.repeat(50), 'color: #ff0000; font-size: 0.5rem;');
 });

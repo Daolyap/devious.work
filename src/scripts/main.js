@@ -385,6 +385,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // XOK easter egg - click the dot 5 times
+  const xokTrigger = document.getElementById('xok-trigger');
+  let xokClicks = 0;
+
+  if (xokTrigger) {
+    xokTrigger.addEventListener('click', () => {
+      xokClicks++;
+
+      if (xokClicks >= 5) {
+        xokTrigger.classList.add('activated');
+        setTimeout(() => {
+          window.location.href = '/xok';
+        }, 500);
+      } else {
+        // Visual feedback
+        xokTrigger.style.opacity = 0.05 + (xokClicks * 0.15);
+        xokTrigger.textContent = '.'.repeat(xokClicks + 1);
+      }
+    });
+  }
+
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
     // Escape to close modal
