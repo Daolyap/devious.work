@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xok</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: monospace;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        .xok-image {
+            max-width: 90vw;
+            max-height: 80vh;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 255, 0, 0.5); }
+            50% { box-shadow: 0 0 50px rgba(0, 255, 0, 0.8); }
+        }
+
+        .xok-text {
+            color: #00ff00;
+            font-size: 3rem;
+            margin-top: 2rem;
+            letter-spacing: 1em;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid #00ff00;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+        }
+
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            opacity: 0.1;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 0, 0.1) 2px,
+                rgba(0, 255, 0, 0.1) 4px
+            );
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+    <a href="/" class="back-link">← RETURN</a>
+
+    <div class="container">
+        <img src="{{XOK_IMAGE}}" alt="xok" class="xok-image" onerror="this.style.display='none'; document.querySelector('.xok-text').textContent='XOK NOT FOUND';">
+        <div class="xok-text">XOK</div>
+    </div>
+
+    <script>
+        // Glitch effect on mousemove
+        document.addEventListener('mousemove', (e) => {
+            const img = document.querySelector('.xok-image');
+            if (Math.random() > 0.95) {
+                img.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+                setTimeout(() => {
+                    img.style.transform = 'translate(0, 0)';
+                }, 50);
+            }
+        });
+
+        // Random static flashes
+        setInterval(() => {
+            if (Math.random() > 0.9) {
+                document.body.style.filter = 'invert(1)';
+                setTimeout(() => {
+                    document.body.style.filter = 'none';
+                }, 50);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

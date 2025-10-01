@@ -1,0 +1,40 @@
+{
+  "exclude": [
+    "mail",
+    "www",
+    "ftp",
+    "cpanel",
+    "webmail",
+    "admin"
+  ],
+  "manualSubdomains": [
+    {
+      "name": "france.devious.work",
+      "description": "French language experiments"
+    },
+    {
+      "name": "UK.devious.work",
+      "description": "UK-focused content"
+    },
+    {
+      "name": "algorithms.devious.work",
+      "description": "Algorithm visualizations"
+    },
+    {
+      "name": "beer.devious.work",
+      "description": "Beer rating database"
+    },
+    {
+      "name": "network.devious.work",
+      "description": "Network diagnostics"
+    },
+    {
+      "name": "strawborse.devious.work",
+      "description": "Experimental project"
+    },
+    {
+      "name": "hierarchy.devious.work",
+      "description": "Organizational structures"
+    }
+  ]
+}

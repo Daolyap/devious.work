@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>you shouldn't be here</title>
+    <style>{{STYLE}}</style>
+</head>
+<body>
+    <div class="screen-tear"></div>
+    <div class="static-overlay"></div>
+    <div class="vignette"></div>
+
+    <div class="warning-flash">
+        <div class="warning-content">
+            <h1>WARNING</h1>
+            <p>UNAUTHORIZED ACCESS DETECTED</p>
+            <p id="warning-countdown">5</p>
+        </div>
+    </div>
+
+    <div id="main-vault" class="hidden">
+        <div class="vault-header">
+            <div class="timestamp" id="timestamp"></div>
+            <div class="connection-status">
+                <span class="status-dot"></span>
+                <span>CONNECTED TO: <span class="glitch-text" data-text="███████">███████</span></span>
+            </div>
+        </div>
+
+        <div class="vault-container">
+            <div class="vault-title">
+                <h1 class="corrupted-text">THE VAULT</h1>
+                <p class="subtitle">YOU FOUND IT. BUT DID YOU REALLY WANT TO?</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-block" id="block-1">
+                    <div class="block-header">
+                        <span class="block-title">LOG_001.txt</span>
+                        <span class="block-date">1997-08-23</span>
+                    </div>
+                    <div class="block-content">
+                        <p>i can see you</p>
+                        <p>watching</p>
+                        <p>always watching</p>
+                        <p>do you ever wonder who's on the other side?</p>
+                        <p class="corrupted">█████████████████</p>
+                        <p>they told me not to upload this</p>
+                        <p>but it's too late now</p>
+                        <p>isn't it?</p>
+                    </div>
+                </div>
+
+                <div class="content-block" id="block-2">
+                    <div class="block-header">
+                        <span class="block-title">FEED_ALPHA</span>
+                        <span class="block-date">LIVE</span>
+                    </div>
+                    <div class="block-content camera-feed">
+                        <div class="camera-static">
+                            <div class="camera-timestamp" id="camera-time"></div>
+                            <div class="camera-text">NO SIGNAL</div>
+                            <div class="camera-bars"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block" id="block-3">
+                    <div class="block-header">
+                        <span class="block-title">COUNTDOWN</span>
+                        <span class="block-date">████████</span>
+                    </div>
+                    <div class="block-content">
+                        <div class="countdown-display">
+                            <div id="countdown-days" class="countdown-number">00</div>
+                            <div class="countdown-label">DAYS</div>
+                            <div id="countdown-hours" class="countdown-number">00</div>
+                            <div class="countdown-label">HOURS</div>
+                            <div id="countdown-mins" class="countdown-number">00</div>
+                            <div class="countdown-label">MINUTES</div>
+                            <div id="countdown-secs" class="countdown-number">00</div>
+                            <div class="countdown-label">SECONDS</div>
+                        </div>
+                        <p class="countdown-footer">UNTIL WHAT?</p>
+                    </div>
+                </div>
+
+                <div class="content-block" id="block-4">
+                    <div class="block-header">
+                        <span class="block-title">TRANSMISSION_404</span>
+                        <span class="block-date">NULL</span>
+                    </div>
+                    <div class="block-content">
+                        <p class="distorted">THEY SAID IT WAS JUST A GAME</p>
+                        <p>but games don't bleed</p>
+                        <p>do they?</p>
+                        <p class="inverted">I FOUND SOMETHING IN THE CODE</p>
+                        <p>something that shouldn't exist</p>
+                        <p>coordinates: <span class="coordinates">51.5074° N, 0.1278° W</span></p>
+                        <p class="corrupted">ERROR ERROR ERROR ERROR</p>
+                        <p class="tiny">help me</p>
+                    </div>
+                </div>
+
+                <div class="content-block glitch-block" id="block-5">
+                    <div class="block-header">
+                        <span class="block-title">█████████</span>
+                        <span class="block-date">████</span>
+                    </div>
+                    <div class="block-content">
+                        <pre class="ascii-art">
+    ⚠️WARNING⚠️
+
+    THIS FILE IS
+    CORRUPTED
+
+    DO NOT PROCEED
+
+    ██████████████
+    █░░░░░░░░░░░░█
+    █░░░░░░░░░░░░█
+    █░░░█████░░░░█
+    █░░░░░░░░░░░░█
+    ██████████████
+
+    CONTACT ADMINISTRATOR
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="content-block" id="block-6">
+                    <div class="block-header">
+                        <span class="block-title">VISITOR_LOG.db</span>
+                        <span class="block-date">REALTIME</span>
+                    </div>
+                    <div class="block-content">
+                        <p>VISITOR COUNT: <span id="visitor-count">1</span></p>
+                        <p>YOUR IP: <span id="visitor-ip">███.███.███.███</span></p>
+                        <p>TIME HERE: <span id="time-here">00:00</span></p>
+                        <p class="warning-text">WE KNOW WHERE YOU ARE</p>
+                        <p class="tiny">just kidding</p>
+                        <p class="tiny">...or are we?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vault-footer">
+                <p>YOU'VE BEEN HERE FOR <span id="session-time">0</span> SECONDS</p>
+                <p class="footer-warning">LEAVING IS NOT AN OPTION</p>
+                <p class="tiny">(just kidding, <a href="/" class="escape-link">click here to escape</a>)</p>
+            </div>
+        </div>
+
+        <div class="phantom-text" id="phantom"></div>
+    </div>
+
+    <audio id="ambient-sound" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hZFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZRA0PVanu77BfGgU+ltryxnMpBSyAzvLWiTYIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHAU7lNr1w3ElBSuCz/PZijUIE2S46OihUQ4LTKXh8bJgGgU7ldz1v2kfBS1+0fDaizsIF2m98OScTgwPUKXh8LVkHQU2kdb0y3krBSl+zPLaizsIFlux6eeXSg0NTaTi8LJiHA==" type="audio/wav">
+    </audio>
+
+    <script>{{SCRIPT}}</script>
+</body>
+</html>

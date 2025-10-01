@@ -1,0 +1,10 @@
+{
+  "order": [
+    "example-project-2.md",
+    "example-project-1.md"
+  ],
+  "metadata": {
+    "title": "Portfolio",
+    "description": "A collection of projects and experiments"
+  }
+}

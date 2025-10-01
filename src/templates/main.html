@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devious.work</title>
+    <meta name="description" content="Welcome to devious.work - Where code meets creativity.">
+    <meta name="author" content="Devious">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>{{STYLE}}</style>
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div id="boot-sequence" class="boot-screen">
+        <div class="boot-content">
+            <div id="boot-logo" class="boot-logo"></div>
+            <div class="boot-progress">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="boot-text" class="boot-text">INITIALIZING SYSTEM...</div>
+            <button id="boot-enter" class="boot-enter hidden">[ ENTER ]</button>
+        </div>
+    </div>
+
+    <header id="main-header" class="hidden">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="nav-brand">
+                    <a href="/">devious.work</a>
+                </div>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#guestbook" class="nav-link">Guestbook</a>
+                    <a href="#network" class="nav-link">Network</a>
+                    <button id="theme-btn" class="theme-btn" title="Customize theme">
+                        <span class="theme-icon">◐</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="hidden">
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">
+                    <span class="glitch-text" data-text="devious.work">devious.work</span>
+                </h1>
+                <p class="hero-subtitle">Engineering the unconventional</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Portfolio</a>
+                    <a href="#guestbook" class="btn btn-secondary">Leave a Message</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-bracket">[</span>
+                    About
+                    <span class="title-bracket">]</span>
+                </h2>
+                <div class="about-content">
+                    <p>Welcome to the network. This is a hub for projects, experiments, and digital artifacts.</p>
+                    <p>Explore the subdomains, sign the guestbook, or discover what lies beneath the surface.</p>
+                    <div class="easter-egg-hint">
+                        <small>Hint: The curious are rewarded. Try searching for things that don't exist.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-bracket">[</span>
+                    Projects
+                    <span class="title-bracket">]</span>
+                </h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Portfolio System</h3>
+                            <span class="project-status status-dev">In Development</span>
+                        </div>
+                        <p>A comprehensive showcase of work and experiments. Currently under construction.</p>
+                        <a href="/portfolio" class="project-link">View Portfolio →</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Network Hub</h3>
+                            <span class="project-status status-live">Live</span>
+                        </div>
+                        <p>A collection of specialized subdomains, each serving unique purposes.</p>
+                        <a href="#network" class="project-link">Explore Network →</a>
+                    </div>
+                    <div class="project-card card-mystery">
+                        <div class="project-header">
+                            <h3>???</h3>
+                            <span class="project-status status-hidden">Hidden</span>
+                        </div>
+                        <p class="mystery-text">Some things are not meant to be found easily...</p>
+                        <div class="mystery-hint">/v█████</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guestbook" class="content-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-bracket">[</span>
+                    Guestbook
+                    <span class="title-bracket">]</span>
+                </h2>
+                <div class="guestbook-wrapper">
+                    <div class="guestbook-form-container">
+                        <p class="guestbook-intro">Leave your digital signature</p>
+                        <form id="guestbook-form" class="guestbook-form">
+                            <div class="form-group">
+                                <label for="gb-name">Name</label>
+                                <input type="text" id="gb-name" name="name" maxlength="50" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="gb-message">Message</label>
+                                <textarea id="gb-message" name="message" maxlength="500" rows="4" required placeholder="Your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="gb-submit">
+                                <span class="btn-text">Submit</span>
+                                <span class="btn-loading hidden">Sending...</span>
+                            </button>
+                            <div id="gb-status" class="form-status"></div>
+                        </form>
+                    </div>
+                    <div class="guestbook-entries" id="gb-entries">
+                        <div class="loading">Loading entries...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="network" class="content-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-bracket">[</span>
+                    Network Map
+                    <span class="title-bracket">]</span>
+                </h2>
+                <div class="network-intro">
+                    <p>Active nodes in the devious.work network</p>
+                </div>
+                <div id="subdomains-grid" class="subdomains-grid">
+                    <div class="loading">Scanning network...</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="search-overlay" class="search-overlay hidden">
+            <div class="search-container">
+                <button class="search-close" id="search-close">×</button>
+                <input type="text" id="search-input" class="search-input" placeholder="Search the network...">
+                <div id="search-results" class="search-results"></div>
+            </div>
+        </section>
+
+        <div id="theme-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Theme Customization</h3>
+                    <button class="modal-close" id="theme-modal-close">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="theme-presets">
+                        <h4>Presets</h4>
+                        <div class="preset-grid">
+                            <button class="preset-btn" data-preset="default">Default</button>
+                            <button class="preset-btn" data-preset="amber">Amber</button>
+                            <button class="preset-btn" data-preset="vaporwave">Vaporwave</button>
+                            <button class="preset-btn" data-preset="nuclear">Nuclear</button>
+                            <button class="preset-btn" data-preset="matrix">Matrix</button>
+                            <button class="preset-btn" data-preset="cyberpunk">Cyberpunk</button>
+                        </div>
+                    </div>
+                    <div class="theme-custom">
+                        <h4>Custom Colors</h4>
+                        <div class="color-picker-grid">
+                            <div class="color-picker-item">
+                                <label>Primary</label>
+                                <input type="color" id="color-primary" value="#00ff7f">
+                            </div>
+                            <div class="color-picker-item">
+                                <label>Background</label>
+                                <input type="color" id="color-bg" value="#0a0a0a">
+                            </div>
+                            <div class="color-picker-item">
+                                <label>Text</label>
+                                <input type="color" id="color-text" value="#e0e0e0">
+                            </div>
+                            <div class="color-picker-item">
+                                <label>Accent</label>
+                                <input type="color" id="color-accent" value="#ff006e">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="apply-custom-theme">Apply Custom</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer" class="hidden">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/Daolyap" target="_blank" rel="noopener">GitHub</a>
+                    <a href="#" class="secret-link" data-secret="devious">?</a>
+                </div>
+                <p class="footer-text">devious.work © 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>{{SCRIPT}}</script>
+</body>
+</html>
