@@ -9,3 +9,7 @@ id = "3d73ad9dbde84962be4f32098e996e94"
 [[kv_namespaces]]
 binding = "RATE_LIMITER"
 id = "8af4c88a5d2d4a57a3f840f24a6d1cd5"
+
+[[routes]]
+pattern = "devious.work"
+custom_domain = true
